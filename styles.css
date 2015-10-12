@@ -1,0 +1,163 @@
+
+
+.container {
+	width: 100%;
+	background-color: green;
+
+}
+
+.scoreboard {
+	height: 100px;
+	width: 75%;
+	margin: 10px auto 0 auto;
+	background-color: white;
+}
+
+.board {
+	margin-top: 50px;
+}
+
+/*h1 {
+	text-align: vertical;
+}*/
+
+.field {
+	height: 350px;
+	background-color: green;
+}
+
+/*.leftOfField {*/
+/*	height: 500px;
+	background-color: gray;
+}*/
+
+/*.rightOfField {*/
+	/*height: 500px;*/
+	/*background-color: gray;*/
+/*}*/
+
+.leftEndzone {
+	height: 350px;
+	background-color: maroon;
+	border: 8px solid white;
+}
+
+.vertical-text-left {
+	transform: rotate(-90deg);
+    transform-origin: right, top;
+    -ms-transform: rotate(-90deg);
+    -ms-transform-origin:right, top;
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin:right, top;
+    margin-top: 260px;
+    font-size: 120px;
+    color: white;
+
+}
+
+.vertical-text-right {
+	transform: rotate(90deg);
+    transform-origin: right, top;
+    -ms-transform: rotate(90deg);
+    -ms-transform-origin:right, top;
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin:right, top;
+    margin-top: 120px;
+    font-size: 120px;
+    color: white;
+
+}
+
+
+.left20 {
+	height: 350px;
+	background-color: green;
+	border-right: 2px solid white;
+	border-top: 8px solid white;
+	border-bottom: 8px solid white;
+}
+
+.left40 {
+	height: 350px;
+	background-color: green;
+	border-right: 2px solid white;
+		border-top: 8px solid white;
+	border-bottom: 8px solid white;
+}
+
+.midField {
+	height: 350px;
+	background-color: green;
+		border-top: 8px solid white;
+	border-bottom: 8px solid white;
+	/*border: 2px solid white;*/
+}
+
+.centerStripe {
+	height: 100%;
+	background-color: white;
+	width: 2px;
+	margin: 0 auto 0 auto;
+}
+
+.leftTen {
+	height: 100%;
+	background-color: white;
+	width: 2px;
+	margin: 0 auto 0 auto;
+}
+
+.leftThirty {
+	height: 100%;
+	background-color: white;
+	width: 2px;
+	margin: 0 auto 0 auto;
+}
+
+.rightThirty {
+	height: 100%;
+	background-color: white;
+	width: 2px;
+	margin: 0 auto 0 auto;
+}
+
+.rightTen {
+	height: 100%;
+	background-color: white;
+	width: 2px;
+	margin: 0 auto 0 auto;
+}
+
+.right40 {
+	height: 350px;
+	background-color: green;
+	border-left: 2px solid white;
+		border-top: 8px solid white;
+	border-bottom: 8px solid white;
+}
+
+.right20 {
+	height: 350px;
+	background-color: green;
+	border-left: 2px solid white;
+		border-top: 8px solid white;
+	border-bottom: 8px solid white;
+}
+.rightEndzone {
+	height: 350px;
+	background-color: maroon;
+	border: 8px solid white;
+}
+
+.ball {
+	width: 25px;
+	height: 25px;
+	background-color: brown;
+	position: relative;
+	bottom: 250px;
+	left: 295px;
+}
+
+#footer {
+	height: 100px;
+}
