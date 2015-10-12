@@ -7,7 +7,7 @@
 		<title>Title Page</title>
 
 		<!-- Bootstrap CSS -->
-		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"> -->
 		<link rel="stylesheet" type="text/css" href="styles.css">
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,32 +18,46 @@
 	</head>
 	<body>
 		<div class="container">
-			<div class="col-md-8-offset scoreboard"></div>	
-			<h1 class="text-center"></h1>
-			<div class="row board">
-				<div class="col-md-1 leftOfField"></div>
-				<div class="col-md-2 leftEndzone"><h1 class="vertical-text-left">Home</h1></div>
-					<div class="leftTen"></div>
-				<div class="col-md-1 left20"></div>
-					<div class="leftThirty"></div>
-				<div class="col-md-1 left40"></div>
-				<div class="col-md-2 midField">
-					<div class="centerStripe"></div>
+			<div class="scoreboard">
+				<h1 class="">Four-Down Football</h1>
+				<div id="clock"></div>
+				<button>New Game</button>
+			</div>	
+			<div class="board">
+				<div id="leftOfField">
+					<!-- <div class="playerInput">Player One</div> -->
 				</div>
-				<div class="col-md-1 right40"></div>
-					<div class="rightThirty"></div>
-				<div class="col-md-1 right20"></div>
-					<div class="rightTen"></div>
-				<div class="col-md-2 rightEndzone"><h1 class="vertical-text-right">Away</h1></div>
-				<div class="col-md-1 rightOfField"></div>
+				<div id="leftEndzone">				
+					<div><h1 class="vertical-text-left">Home</h1></div>
+				</div>
+				<div id="left20">
+					<div id="leftTen"></div>
+				</div>
+				<div id="left40">
+					<div id="leftThirty"></div>
+				</div>
+				<div id="midField">
+					<div id="centerStripe"></div>
+				</div>
+				<div id="right40">
+					<div id="rightThirty"></div>
+				</div>
+				<div id="right20">
+					<div id="rightTen"></div>
+				</div>
+				<div id="rightEndzone">
+					<div><h1 class="vertical-text-right">Away</h1></div>
+				</div>
+				<div id="rightOfField">
+					<!-- <div class="playerInput">Player Two</div> -->
+				</div>
 			</div>
-			<div class="ball"></div>
+			<div id="ball"></div>
 		<div id="footer"></div>
 		</div>
 		<!-- jQuery -->
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->
-		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="scripts.js"></script>
 	</body>
 </html>
