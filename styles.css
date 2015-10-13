@@ -57,10 +57,32 @@ button {
 	border: 8px solid black;
 }
 
+#homePoints {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	font-size: 72px;
+	color: blue;
+	position: absolute;
+	left: 70px;
+	bottom: 70px;
+}
+
 #rightOfField {
 	width: 175px;
 	background-color: white;
 	border: 8px solid black;
+}
+
+#awayPoints {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	font-size: 72px;
+	color: red;
+	position: absolute;
+	right: 70px;
+	bottom: 70px;
 }
 
 .playerInput {
@@ -85,8 +107,8 @@ button {
     font-size: 150px;
     color: white;
     position: absolute;
-    left: 115px;
-    bottom: 185px;
+    left: 70px;
+    bottom: 170px;
 }
 
 .vertical-text-right {
@@ -100,8 +122,8 @@ button {
     font-size: 150px;
     color: white;
     position: absolute;
-    right: 105px;
-    bottom: 185px;
+    right: 70px;
+    bottom: 170px;
 }
 
 
