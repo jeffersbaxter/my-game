@@ -19,12 +19,15 @@
 	<body>
 		<div class="container">
 			<div class="scoreboard">
-				<h1 class="">Four-Down Football</h1>
-				<div id="clock"></div>
-				<button>New Game</button>
+				<div id="clock">
+					<span id="display">Time </span><span id="minutes">2</span><span id="colon">:</span><span id="seconds">00</span>
+				</div>				
+				<div id="down"></div>
 			</div>	
+				<button name="button" type="reset" id="newGame">New Game</button>
 			<div class="board">
 				<div id="leftOfField">
+					<!-- <input type="text" placeholder="Player One" id="playerOne"> -->
 					<div id="homePoints">0</div>
 				</div>
 				<div id="leftEndzone">				
@@ -49,6 +52,7 @@
 					<div><h1 class="vertical-text-right">AWAY</h1></div>
 				</div>
 				<div id="rightOfField">
+					<!-- <input type="text" placeholder="Player Two" id="playerTwo"> -->
 					<div id="awayPoints">0</div>
 				</div>
 			</div>

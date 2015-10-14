@@ -2,20 +2,39 @@ $(document).ready(function(){
 	var start = null;
 	var end = null;
 	var counter = 0;
-	var playCount = 0;
+	var playCount = 1;
 	var homeScore = 0;
 	var awayScore = 0;
+	var min = parseInt($("#minutes").html());
+	var sec = parseInt($("#seconds").html());
+
+
+
+	var resetGame = function(){
+		$('#newGame').click(function(){
+			parseInt($('#homePoints').html(0));
+			parseInt($('#awayPoints').html(0));
+		});
+	}
 
 
 	var setBall = function(pos1, pos2){
-		if ((pos1 > 870) && (pos2 < 1035)) {
-			$('#ball').css('left', '860px');
+		if (pos1 > 870) {
+			$('#ball').animate({left: '845px'}, 1000);
 			return;
-		} else if ((pos1 > 215) && (pos2 < 380)) {
-			$('#ball').css('left', '390px');
+		} else if (pos2 < 395) {
+			$('#ball').animate({left: '405px'}, 1000);
 			return;
 		}
 	}
+
+	var checkDown = function(){
+		if (playCount == 4) {
+			playCount = 0;
+			alert("Change of Possession!");
+			counter++;
+		};
+	};
 
 	var keyPressed = false;
 	$('body').keydown(function(e){
@@ -39,6 +58,7 @@ $(document).ready(function(){
 			keyPressed = false;
 		}
 	});
+
 	var whoseTurn = function(yards){
 		if (counter % 2 == 0){
 			homePlay(yards);
@@ -49,53 +69,52 @@ $(document).ready(function(){
 	};
 
 	var homePlay = function(yds){
-
 		if (yds > 0 && yds < 75) {
-			$('#ball').css("left", "+=50px");
-			playCount++;
+			$('#ball').css("left", "+=25px");
 			checkPosition();
-		} else if (yds >= 75 && yds < 150) {
+		} else if (yds >= 75 && yds < 100) {
+			$('#ball').css("left", "+=100px");
+			checkPosition();
+		} else if (yds >= 100 && yds < 250) {
+			alert("Incomplete Pass");
+			checkPosition();
+		} else if (yds >= 250 && yds < 350) {
 			$('#ball').css("left", "+=150px");
-			playCount++;
-			checkPosition();
-		} else if (yds >= 150 && yds < 350) {
-			$('#ball').css("left", "+=180px");
-			playCount++;
 			checkPosition();
 		} else if (yds >= 350 && yds < 500){
-			$('#ball').css("left", "+=200px");
-			playCount++;
+			$('#ball').css("left", "+=180px");
 			checkPosition();
 		} else if (yds >= 500){
 			alert("Intercepted by Player Two");
 			counter++;
-			playCount = 0;
+			playCount = 1;
 		}
-		console.log(counter);
-
-	}
+		console.log(playCount);
+	};
 
 	var awayPlay = function(yds){
-
 		if (yds > 0 && yds < 75) {
-			$('#ball').css("left", "-=50px");
+			$('#ball').css("left", "-=25px");
 			checkPosition();
-		} else if (yds >= 75 && yds < 150) {
+		} else if (yds >= 75 && yds < 100) {
+			$('#ball').css("left", "-=100px");
+			checkPosition();
+		} else if (yds >= 100 && yds < 250) {
+			alert("Incomplete Pass");
+			checkPosition();
+		} else if (yds >= 250 && yds < 350) {
 			$('#ball').css("left", "-=150px");
 			checkPosition();
-		} else if (yds >= 150 && yds < 350) {
-			$('#ball').css("left", "-=180px");
-			checkPosition();
 		} else if (yds >= 350 && yds < 500){
-			$('#ball').css("left", "-=200px");
+			$('#ball').css("left", "-=180px");
 			checkPosition();
 		} else if (yds >= 500){
 			alert("Intercepted by Player One");
 			counter++;
-			playCount = 0;
+			playCount = 1;
 		}
 
-			console.log(counter);
+			console.log(playCount);
 	}
 
 	var checkPosition = function(){
@@ -103,35 +122,37 @@ $(document).ready(function(){
 		var ballWidth = $('#ball').width();
 		var rightPos = leftPos + ballWidth;
 
-			if ((leftPos > 870) && (rightPos < 1035)) {
-				// setTimeout(function() {
-				// 	alert("Player One Scores!");
-				// }, 100);
-				homeScore+=7;
-				counter++;
-				// setBall(leftPos, rightPos);
-				// alert("Away: "+awayScore+"||"+"Home: "+homeScore);
-				parseInt($('#homePoints').html(homeScore));
-			} else if (rightPos >= 1035) {
-				setBall(leftPos, rightPos);
-				counter++;
-			} else if (leftPos <= 215){
-				setBall(leftPos, rightPos);
-				counter++;
-			}
-			else if ((leftPos > 215) && (rightPos < 380)){
-				// setTimeout(function(){
-				// 	alert("Player Two Scores!");
-				// }, 100);
-				awayScore+=7;
-				counter++;
-				// setBall(leftPos, rightPos);
-				// alert("Away: "+awayScore+" || "+"Home: "+homeScore);
-				parseInt($('#awayPoints').html(awayScore));
-			} else {
-				playCount++;
-			}
+		if ((leftPos > 870) && (rightPos < 1055)) {
+			homeScore+=7;
+			counter++;
+			setBall(leftPos, rightPos);
+			parseInt($('#homePoints').html(homeScore));
+			playCount = 1;
+			parseInt($('#down').html("Down "+playCount));
+		} else if ((leftPos > 215) && (rightPos < 395)){
+			awayScore+=7;
+			counter++;
+			setBall(leftPos, rightPos);
+			parseInt($('#awayPoints').html(awayScore));
+			playCount = 1;
+			parseInt($('#down').html("Down "+playCount));
+		} else if (rightPos >= 1055) {
+			alert("Turnover!")
+			setBall(leftPos, rightPos);
+			playCount = 1;
+			counter++;
+			parseInt($('#down').html("Down "+playCount));
+		} else if (leftPos <= 215){
+			alert("Turnover!")
+			setBall(leftPos, rightPos);
+			playCount = 1;
+			counter++;
+			parseInt($('#down').html("Down "+playCount));
+		} else {
+			checkDown();
+			playCount++;
+			parseInt($('#down').html("Down "+playCount));
+		}
 	};
-
-			
+	parseInt($('#down').html("Down "+playCount));		
 });
