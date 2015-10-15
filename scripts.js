@@ -10,7 +10,9 @@ $(document).ready(function(){
 	var countdown = 2 * 60 * 1000;
 	var playTimer = 10 * 1000;
 
+
 	alert("Click the timer to start. Use the spacebar to play");
+
 
 
 
