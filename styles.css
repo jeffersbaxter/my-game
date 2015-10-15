@@ -1,0 +1,242 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+.container {
+	width: 100%;
+	background: url("images/lights.jpeg");
+	/*https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAcQjRxqFQoTCKPD-MODw8gCFRKkiAodSO4GCw&url=http%3A%2F%2Fsolidiumtech.com%2F%3Fpage_id%3D13&bvm=bv.105039540,d.cGU&psig=AFQjCNE_p9IG_YKnI_67uDfymw1uBTGt5A&ust=1444948438745972*/
+	height: 100%;
+	padding-top: 10px;
+}
+
+.scoreboard {
+	height: 100px;
+	width: 68%;
+	margin: 0 auto 10px auto;
+	background-color: black;
+	text-align: center;
+	border-top: 8px solid green;
+	font-family: "scoreboard";
+	color: white;
+	border: 2px solid white;
+}
+
+#down {
+	height: 60px;
+	width: 200px;
+	background-color: black;
+	display: inline-block;
+	position: absolute;
+	left: 210px;
+	top: 35px;
+	color: gold;
+	font-size: 60px;
+	font-family: "scoreboard";
+}
+
+#clock {
+	font-family: "scoreboard";
+	font-size: 60px;
+	color: gold;
+	margin-top: 20px;
+}
+
+#playClock {
+	display: inline;
+	font-family: "scoreboard";
+	font-size: 60px;
+	color: gold;	
+	position: relative;
+	bottom: 70px;
+	left: 350px;
+}
+
+button {
+	position: relative;
+	left: 50%;
+}
+
+.board {
+	display: inline-block;
+	background-color: black;
+	width: 100%;
+	height: 75%;
+	text-align: center;
+}
+
+.board div {
+	display: inline-block;
+	height: 100%;
+/*	box-sizing: border-box;*/
+	margin: 0 -2px;
+}
+
+#leftOfField {
+	width: 175px;
+	background-color: white;
+	border: 8px solid black;
+}
+
+#homePoints {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	font-size: 100px;
+	color: blue;
+	position: absolute;
+	left: 70px;
+	bottom: 70px;
+	font-family: "scoreboard";
+}
+
+#rightOfField {
+	width: 175px;
+	background-color: white;
+	border: 8px solid black;
+}
+
+#awayPoints {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	font-size: 100px;
+	color: red;
+	position: absolute;
+	right: 70px;
+	bottom: 70px;
+	font-family: "scoreboard";
+}
+
+.playerInput {
+	margin: 0;
+	position: absolute;
+}
+
+#leftEndzone {
+	width: 160px;
+	background-color: red;
+	border: 8px solid white;
+}
+
+/*.vertical-text-left {
+	transform: rotate(-90deg);
+    transform-origin: right, top;
+    -ms-transform: rotate(-90deg);
+    -ms-transform-origin:right, top;
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin:right, top;
+    margin-top: 260px;
+    font-size: 125px;
+    color: white;
+    position: absolute;
+    left: 95px;
+    bottom: 190px;
+}*/
+
+/*.vertical-text-right {
+	transform: rotate(90deg);
+    transform-origin: right, top;
+    -ms-transform: rotate(90deg);
+    -ms-transform-origin:right, top;
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin:right, top;
+    margin-top: 120px;
+    font-size: 125px;
+    color: white;
+    position: absolute;
+    right: 95px;
+    bottom: 190px;
+}*/
+
+
+#left20 {
+	width: 100px;
+	background-color: green;
+	border-right: 2px solid white;
+	border-top: 8px solid white;
+	border-bottom: 8px solid white;
+}
+
+#left40 {
+	width: 100px;
+	background-color: green;
+	border-right: 2px solid white;
+		border-top: 8px solid white;
+	border-bottom: 8px solid white;
+}
+
+#midField {
+	width: 100px;
+	background-color: green;
+	border-top: 8px solid white;
+	border-bottom: 8px solid white;
+	/*border: 2px solid white;*/
+}
+
+#centerStripe {
+	background-color: white;
+	width: 2px;
+}
+
+#leftTen {
+	background-color: white;
+	width: 2px;
+}
+
+#leftThirty {
+	background-color: white;
+	width: 2px;
+}
+
+#rightThirty {
+	background-color: white;
+	width: 2px;
+}
+
+#rightTen {
+	background-color: white;
+	width: 2px;
+}
+
+#right40 {
+	width: 100px;
+	background-color: green;
+	border-left: 2px solid white;
+	border-top: 8px solid white;
+	border-bottom: 8px solid white;
+}
+
+#right20 {
+	width: 100px;
+	background-color: green;
+	border-left: 2px solid white;
+	border-top: 8px solid white;
+	border-bottom: 8px solid white;
+}
+#rightEndzone {
+	width: 160px;
+	background-color: blue;
+	border: 8px solid white;
+}
+
+#ball {
+	width: 25px;
+	height: 25px;
+	border-radius: 10px;
+	background-color: brown;
+	position: relative;
+	bottom: 250px;
+	left: 400px;
+	box-shadow: 5px 5px 10px;
+}
+
+#footer {
+	height: 10px;
+	background-color: gray;
+}
