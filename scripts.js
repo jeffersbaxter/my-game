@@ -186,27 +186,16 @@ $(document).ready(function(){
 		} else if (awayScore > homeScore) {
 			alert("Player Two wins!");
 		} else {
-			alert("Sudden Death! First team to score wins!");
 			suddenDeath();
 		}
 	};
 
 	var suddenDeath = function(){
 		if ((leftPos > 870) && (rightPos < 1055)) {
-			homeScore+=7;
-			counter++;
-			setBall(leftPos, rightPos);
-			parseInt($('#homePoints').html(homeScore));
-			playCount = 1;
-			parseInt($('#down').html("Down "+playCount));
+			checkPosition();
 			alert("Player One wins");
 		} else if ((leftPos > 215) && (rightPos < 395)){
-			awayScore+=7;
-			counter++;
-			setBall(leftPos, rightPos);
-			parseInt($('#awayPoints').html(awayScore));
-			playCount = 1;
-			parseInt($('#down').html("Down "+playCount));
+			checkPosition();
 			alert("Player Two wins");
 		};
 	};
