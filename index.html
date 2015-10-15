@@ -20,18 +20,21 @@
 		<div class="container">
 			<div class="scoreboard">
 				<div id="clock">
-					<span id="display">Time </span><span id="minutes">2</span><span id="colon">:</span><span id="seconds">00</span>
-				</div>				
+					<span id="display">Time </span><span id="minutes">2</span><span class="colon">:</span><span class="seconds">00</span>
+				</div>	
+				<div id="playClock">
+					<span class="colon">:</span><span class="seconds">10</span>
+				</div>			
 				<div id="down"></div>
 			</div>	
-				<button name="button" type="reset" id="newGame">New Game</button>
+				<!-- <button name="button" type="reset" id="newGame">New Game</button> -->
 			<div class="board">
 				<div id="leftOfField">
 					<!-- <input type="text" placeholder="Player One" id="playerOne"> -->
 					<div id="homePoints">0</div>
 				</div>
 				<div id="leftEndzone">				
-					<div><h1 class="vertical-text-left">HOME</h1></div>
+					<div><h1 class="vertical-text-left"></h1></div>
 				</div>
 				<div id="left20">
 					<div id="leftTen"></div>
@@ -49,7 +52,7 @@
 					<div id="rightTen"></div>
 				</div>
 				<div id="rightEndzone">
-					<div><h1 class="vertical-text-right">AWAY</h1></div>
+					<div><h1 class="vertical-text-right"></h1></div>
 				</div>
 				<div id="rightOfField">
 					<!-- <input type="text" placeholder="Player Two" id="playerTwo"> -->
@@ -57,7 +60,6 @@
 				</div>
 			</div>
 			<div id="ball"></div>
-		<div id="footer"></div>
 		</div>
 		<!-- jQuery -->
 		<script src="http://code.jquery.com/jquery.js"></script>

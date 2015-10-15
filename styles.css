@@ -9,7 +9,8 @@ html, body {
 
 .container {
 	width: 100%;
-	background-color: green;
+	background: url("images/lights.jpeg");
+	/*https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0CAcQjRxqFQoTCKPD-MODw8gCFRKkiAodSO4GCw&url=http%3A%2F%2Fsolidiumtech.com%2F%3Fpage_id%3D13&bvm=bv.105039540,d.cGU&psig=AFQjCNE_p9IG_YKnI_67uDfymw1uBTGt5A&ust=1444948438745972*/
 	height: 100%;
 	padding-top: 10px;
 }
@@ -44,6 +45,16 @@ html, body {
 	font-size: 60px;
 	color: gold;
 	margin-top: 20px;
+}
+
+#playClock {
+	display: inline;
+	font-family: "scoreboard";
+	font-size: 60px;
+	color: gold;	
+	position: relative;
+	bottom: 70px;
+	left: 350px;
 }
 
 button {
@@ -109,11 +120,11 @@ button {
 
 #leftEndzone {
 	width: 160px;
-	background-color: maroon;
+	background-color: red;
 	border: 8px solid white;
 }
 
-.vertical-text-left {
+/*.vertical-text-left {
 	transform: rotate(-90deg);
     transform-origin: right, top;
     -ms-transform: rotate(-90deg);
@@ -126,9 +137,9 @@ button {
     position: absolute;
     left: 95px;
     bottom: 190px;
-}
+}*/
 
-.vertical-text-right {
+/*.vertical-text-right {
 	transform: rotate(90deg);
     transform-origin: right, top;
     -ms-transform: rotate(90deg);
@@ -141,7 +152,7 @@ button {
     position: absolute;
     right: 95px;
     bottom: 190px;
-}
+}*/
 
 
 #left20 {
@@ -210,7 +221,7 @@ button {
 }
 #rightEndzone {
 	width: 160px;
-	background-color: maroon;
+	background-color: blue;
 	border: 8px solid white;
 }
 

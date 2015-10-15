@@ -7,6 +7,8 @@ $(document).ready(function(){
 	var awayScore = 0;
 	var min = parseInt($("#minutes").html());
 	var sec = parseInt($("#seconds").html());
+	var countdown = 2 * 60 * 1000;
+	var playTimer = 10 * 1000;
 
 
 
@@ -22,7 +24,7 @@ $(document).ready(function(){
 		if (pos1 > 870) {
 			$('#ball').animate({left: '845px'}, 1000);
 			return;
-		} else if (pos2 < 395) {
+		} else if (pos2 <= 395) {
 			$('#ball').animate({left: '405px'}, 1000);
 			return;
 		}
@@ -129,7 +131,7 @@ $(document).ready(function(){
 			parseInt($('#homePoints').html(homeScore));
 			playCount = 1;
 			parseInt($('#down').html("Down "+playCount));
-		} else if ((leftPos > 215) && (rightPos < 395)){
+		} else if ((leftPos > 215) && (rightPos <= 395)){
 			awayScore+=7;
 			counter++;
 			setBall(leftPos, rightPos);
@@ -154,5 +156,77 @@ $(document).ready(function(){
 			parseInt($('#down').html("Down "+playCount));
 		}
 	};
+
+	$('#clock').click( function(){
+		var timerId = setInterval(function(){
+	  		countdown -= 1000;
+	  		var min = Math.floor(countdown / (60 * 1000));
+	  		var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);  
+	  		tenSeconds();
+
+	 		if (countdown <= -1) {
+	     	checkWinner();
+	     	clearInterval(timerId);
+	  		} else if (sec < 10) {
+	     	$("#clock").html(min + ":0" + sec);
+	  		} else {
+	     	$("#clock").html(min + ":" + sec);
+	  		}
+	  		// CREDIT: http://stackoverflow.com/questions/13328919/timer-for-only-30-mins
+		}, 1000);
+	});
+
+	var checkWinner = function(){
+		if (homeScore > awayScore){
+			alert("Player One wins!");
+		} else if (awayScore > homeScore) {
+			alert("Player Two wins!");
+		} else {
+			alert("Sudden Death! First team to score wins!");
+			suddenDeath();
+		}
+	};
+
+	var suddenDeath = function(){
+		if ((leftPos > 870) && (rightPos < 1055)) {
+			homeScore+=7;
+			counter++;
+			setBall(leftPos, rightPos);
+			parseInt($('#homePoints').html(homeScore));
+			playCount = 1;
+			parseInt($('#down').html("Down "+playCount));
+			alert("Player One wins");
+		} else if ((leftPos > 215) && (rightPos < 395)){
+			awayScore+=7;
+			counter++;
+			setBall(leftPos, rightPos);
+			parseInt($('#awayPoints').html(awayScore));
+			playCount = 1;
+			parseInt($('#down').html("Down "+playCount));
+			alert("Player Two wins");
+		};
+	};
+
+	var tenSeconds = function(){
+		$('#clock').click( function(){
+			var playTimerId = setInterval(function(){
+		  		playTimer -= 1000;
+		  		var playSec = Math.floor(playTimer / 1000);  
+
+		 		if (playTimer <= -1) {
+			 		alert("Delay of Game!");
+			 		playCount = 1;
+			     	counter++;
+			     	clearInterval(playTimerId);
+		  		} else if (playSec < 10) {
+			     	$("#playClock").html(":0" + playSec);
+		  		} else {
+					$("#playClock").html(":" + playSec);
+				};
+		  		// CREDIT: http://stackoverflow.com/questions/13328919/timer-for-only-30-mins
+			}, 1000);
+		});
+	};
+
 	parseInt($('#down').html("Down "+playCount));		
 });
