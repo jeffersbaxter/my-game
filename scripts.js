@@ -11,7 +11,7 @@ $(document).ready(function(){
 	var playTimer = 10 * 1000;
 
 
-	alert("Click the timer to start. Use the spacebar to play");
+	alert("Click the timer to start. Use the spacebar to play.");
 
 
 
