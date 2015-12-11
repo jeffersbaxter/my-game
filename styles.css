@@ -95,6 +95,7 @@ button {
 	font-family: "scoreboard";
 }
 
+
 #rightOfField {
 	width: 175px;
 	background-color: white;
@@ -111,6 +112,7 @@ button {
 	right: 70px;
 	bottom: 70px;
 	font-family: "scoreboard";
+	/*src: url('scoreboard.ttf');*/
 }
 
 .playerInput {
@@ -123,36 +125,6 @@ button {
 	background-color: red;
 	border: 8px solid white;
 }
-
-/*.vertical-text-left {
-	transform: rotate(-90deg);
-    transform-origin: right, top;
-    -ms-transform: rotate(-90deg);
-    -ms-transform-origin:right, top;
-    -webkit-transform: rotate(-90deg);
-    -webkit-transform-origin:right, top;
-    margin-top: 260px;
-    font-size: 125px;
-    color: white;
-    position: absolute;
-    left: 95px;
-    bottom: 190px;
-}*/
-
-/*.vertical-text-right {
-	transform: rotate(90deg);
-    transform-origin: right, top;
-    -ms-transform: rotate(90deg);
-    -ms-transform-origin:right, top;
-    -webkit-transform: rotate(90deg);
-    -webkit-transform-origin:right, top;
-    margin-top: 120px;
-    font-size: 125px;
-    color: white;
-    position: absolute;
-    right: 95px;
-    bottom: 190px;
-}*/
 
 
 #left20 {

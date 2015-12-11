@@ -9,8 +9,10 @@ $(document).ready(function(){
 	var sec = parseInt($("#seconds").html());
 	var countdown = 2 * 60 * 1000;
 	var playTimer = 10 * 1000;
+	var playTimerId;
+	console.log(playTimer);
 
-
+	parseInt($('#down').html("Down "+playCount));
 	alert("Click the timer to start. Use the spacebar to play.");
 
 
@@ -57,8 +59,10 @@ $(document).ready(function(){
 		if (e.keyCode==32 && keyPressed) {
 			end = new Date();
 			var yards = (end - start);
+			// clearInterval(playTimerId);
+			resetTen();
+			// tenSeconds();
 			whoseTurn(yards);
-			console.log(yards);
 			start = null;
 			end = null;
 			keyPressed = false;
@@ -95,7 +99,6 @@ $(document).ready(function(){
 			counter++;
 			playCount = 1;
 		}
-		console.log(playCount);
 	};
 
 	var awayPlay = function(yds){
@@ -120,7 +123,6 @@ $(document).ready(function(){
 			playCount = 1;
 		}
 
-			console.log(playCount);
 	}
 
 	var checkPosition = function(){
@@ -162,6 +164,7 @@ $(document).ready(function(){
 	};
 
 	$('#clock').click( function(){
+		whistle();
 		var timerId = setInterval(function(){
 	  		countdown -= 1000;
 	  		var min = Math.floor(countdown / (60 * 1000));
@@ -169,16 +172,24 @@ $(document).ready(function(){
 	  		tenSeconds();
 
 	 		if (countdown <= -1) {
-	     	checkWinner();
-	     	clearInterval(timerId);
+	 			whistle();
+	     		checkWinner();
+	     		clearInterval(timerId);
 	  		} else if (sec < 10) {
-	     	$("#clock").html(min + ":0" + sec);
+	     		$("#clock").html(min + ":0" + sec);
 	  		} else {
-	     	$("#clock").html(min + ":" + sec);
+	     		$("#clock").html(min + ":" + sec);
 	  		}
 	  		// CREDIT: http://stackoverflow.com/questions/13328919/timer-for-only-30-mins
 		}, 1000);
 	});
+
+	var whistle = function(){
+	// referee blows whistle on click of clock
+		var audio= new Audio();
+		audio.src="whistle.wav";
+		audio.play();
+	}
 
 	var checkWinner = function(){
 		if (homeScore > awayScore){
@@ -200,17 +211,27 @@ $(document).ready(function(){
 		};
 	};
 
-	var tenSeconds = function(){
-		$('#clock').click( function(){
-			var playTimerId = setInterval(function(){
-		  		playTimer -= 1000;
-		  		var playSec = Math.floor(playTimer / 1000);  
+	var resetTen = function(){
+		playTimer = 11 * 1000;
+		// tenSeconds();
+		return playTimer;
+	}
 
-		 		if (playTimer <= -1) {
+	var tenSeconds = function(){
+			var playTimerId = setInterval(function(){
+				// var playTimer = 10000;
+		  		playTimer -= 1000;
+		  		var playSec = Math.floor(playTimer / 1000);
+		     	clearInterval(playTimerId);
+
+		 		if (playTimer < 0) {
+	 				whistle();
 			 		alert("Delay of Game!");
-			 		playCount = 1;
+		     		clearInterval(playTimerId);
+			 		resetTen();
+			 		playCount = 0;
 			     	counter++;
-			     	clearInterval(playTimerId);
+
 		  		} else if (playSec < 10) {
 			     	$("#playClock").html(":0" + playSec);
 		  		} else {
@@ -218,8 +239,7 @@ $(document).ready(function(){
 				};
 		  		// CREDIT: http://stackoverflow.com/questions/13328919/timer-for-only-30-mins
 			}, 1000);
-		});
 	};
 
-	parseInt($('#down').html("Down "+playCount));		
+		
 });
